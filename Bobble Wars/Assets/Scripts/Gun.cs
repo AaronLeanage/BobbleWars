@@ -12,7 +12,7 @@ public class Gun : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown(0)) {//Check if mouse left button is down
 			if (!IsInvoking("fireBullet")) {//Check if fireBullet is already being invoked
-				InvokeRepeating("fireBullet", 0f, 0.1f);//Invoke it once every 0.1 seconds
+				InvokeRepeating("fireBullet", 0f, 0.15f);//Invoke it once every 0.1 seconds
 			}
 		}
 
