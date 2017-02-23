@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic; //Allows use of generic arrays
 
 public class GameManager : MonoBehaviour {
-	public GameObject Player;
+	public GameObject player;
 	public GameObject[] spawnPoints;
 	public GameObject Alien;
 
@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour {
 						GameObject newAlien = Instantiate(Alien) as GameObject;
 						newAlien.transform.position = spawnLocation.transform.position;
 
+						//Setting the target to the player
+						Alien alienScript = newAlien.GetComponent<Alien>(); 
+						alienScript.target = player.transform;
+						//Rotate alien to face player
+						Vector3 targetRotation = new Vector3(player.transform.position.x, newAlien.transform.position.y, player.transform.position.z);
+						newAlien.transform.LookAt(targetRotation);
 					}				
 				}
 			}
